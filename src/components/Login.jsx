@@ -31,7 +31,7 @@ const Login = () => {
 
 
     <div>
-    아이디가 없으신가요?<Link to='/signUp'>회원가입</Link>
+    계정이 없으신가요?<Link to='/signUp'>회원가입</Link>
     </div>
     </>
   )

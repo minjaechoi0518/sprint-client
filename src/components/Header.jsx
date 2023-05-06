@@ -1,13 +1,21 @@
-import React from 'react'
-import * as CSS from './component/style'
-
+import * as CSS from "./component/style";
+import MenuBar from "./MenuBar";
+import React, { useState } from "react";
 
 const Header = () => {
-  return (
-    <CSS.Header>
-    <CSS.HeaderTitle>SPRINT</CSS.HeaderTitle>
-    </CSS.Header>
-  )
-}
+  const [isActive, setIsActive] = useState(false);
 
-export default Header
+  const toggleMenu = () => {
+    setIsActive(!isActive);
+  };
+  return (
+    <div>
+      <CSS.Header>
+        <CSS.HeaderTitle>SPRINT</CSS.HeaderTitle>
+        <MenuBar isActive={isActive} toggleMenu={toggleMenu} />
+      </CSS.Header>
+    </div>
+  );
+};
+
+export default Header;

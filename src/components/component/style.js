@@ -77,12 +77,6 @@ display:flex;
 align-items:center;
 flex-direction:column;
 justify-content:center;
-position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-border: 1px solid gray;
-padding:50px;
 `
 
 //form
@@ -101,6 +95,17 @@ padding:10px;
 `
 
 //Login
+export const LoginBox = styled.div`
+display:flex;
+align-items:center;
+flex-direction:column;
+justify-content:center;
+border:1px solid gray;
+width:400px;
+height:500px;
+margin-top:100px
+`
+
 export const Title = styled.h1`
 font-size:40px;
 font-weight:600;
@@ -117,4 +122,28 @@ margin-bottom:10px;
 
 export const SignupGuide = styled.div`
 margin-top:20px;
+`
+
+//Editor
+export const SupportAreas = styled.article`
+display:flex;
+/* align-items:center; */
+justify-content:center;
+flex-direction:row;
+`
+export const NumberOfApplicantsUl = styled.ul`
+
+`
+export const NumberOfApplicantsLi = styled.li`
+padding:12px;
+`
+export const NumberOfApplicantsInput = styled.input`
+width:20px;
+padding:5px;
+margin:5px;
+`
+export const InputSection = styled.section`
+display:flex;
+align-items:center;
+flex-direction:column;
 `

@@ -1,8 +1,11 @@
-import React from "react";
-import * as CSS from "../components/component/style";
+import React from 'react'
+import * as CSS from '../components/component/style'
+
 
 const Home = () => {
-  return <CSS.HomeTitle>Homedklasjdkjasdoialsdj</CSS.HomeTitle>;
-};
+  return (
+    <CSS.HomeTitle>Homedklasjdkjasdoialsdj</CSS.HomeTitle>
+  )
+}
 
 export default Home;

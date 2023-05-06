@@ -23,9 +23,6 @@ function MenuBar() {
           <li>
             <a href="#">메뉴2</a>
           </li>
-          <li>
-            <a href="#">메뉴3</a>
-          </li>
         </ul>
       </MenuBarDropdown>
     </MenuBarContainer>
@@ -57,7 +54,11 @@ const MenuBarDropdown = styled.div`
   position: absolute;
   top: 100%;
   left: 0;
-  display: none;
+  display: block;
+
+  &.active {
+    display: block;
+  }
 
   ${MenuBarContainer}.active & {
     display: block;

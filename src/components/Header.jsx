@@ -1,11 +1,12 @@
-import React from 'react'
-import * as CSS from './component/style'
-
+import React from "react";
+import * as CSS from "./component/style";
 
 const Header = () => {
   return (
-    <div>Header</div>
-  )
-}
+    <CSS.Header>
+      <CSS.HeaderTitle>SPRINT</CSS.HeaderTitle>
+    </CSS.Header>
+  );
+};
 
-export default Header
+export default Header;

@@ -25,3 +25,18 @@ text-align:center;
 margin-bottom:10px;
 background-color:#F0A04B;
 `
+
+//button
+export const Button = styled.button`
+border:none;
+background-color:${(props) => props.type === 'positive' ? '#F0F0F0' : '#F8F4EA'};
+color: ${(props) => props.type === 'positive' ? '#3C486B' : '#243763'};
+padding:20px;
+font-weight:600;
+&:hover{
+  background-color:${(props) => props.type === 'positive' ? '#579BB1' : '#CE7777'};
+color: ${(props) => props.type === 'positive' ? '#F0F0F0' : '#F8F4EA'};
+transform: scale(1.1);
+cursor: pointer;
+}
+`

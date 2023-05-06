@@ -1,8 +1,13 @@
-import React, { Children } from 'react'
+import React from 'react'
+import * as CSS from '../component/style'
 
 const Button = (props) => {
+  // <Button type='positive'>희망</Button>
+  // <Button type='negative'>절망</Button>
   return (
-    <button>{props.children}</button>
+    <CSS.Button
+      type={props.type}
+    >{props.children}</CSS.Button>
   )
 }
 

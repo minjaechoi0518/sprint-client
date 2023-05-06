@@ -5,13 +5,13 @@ import Header from './Header'
 import useInput from './Hooks/useInput'
 
 const Login = () => {
-  const [userId, onChangeUserIdHandler ] = useInput('')
+  const [userName, onChangeUserIdHandler ] = useInput('')
   const [password, onChangPasswordHandler] = useInput('')
 
   const [warningNotice, setWarningNotice] = useState('')
 
   const onClickLoginHandler = ()=>{
-    if(userId.length <1 ){
+    if(userName.length <1 ){
       setWarningNotice('아이디를 입력해주세요')
       return;
     }
@@ -26,16 +26,21 @@ const Login = () => {
     <Header/>
     <h1>로그인</h1>
     <form>
-    <input value={userId} onChange={onChangeUserIdHandler}/>
+    <input value={userName} onChange={onChangeUserIdHandler}/>
     <input value={password} onChange={onChangPasswordHandler}/>
     </form>
-    <Button onClick={onClickLoginHandler}>로그인</Button>
+    <Button type='positive' 
+    onClick={onClickLoginHandler}>로그인</Button>
     {warningNotice}
 
 
     <div>
-    계정이 없으신가요?<Link to='/signUp'>회원가입</Link>
+    계정이 없으신가요?<Link to='/signUp'>
+      <Button type='positive' >회원가입</Button>
+      </Link>
     </div>
+
+
     </>
   )
 }

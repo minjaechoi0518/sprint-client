@@ -1,6 +1,9 @@
 import React from "react";
+import styled from "styled-components";
 
-const MenuBar = () => {
+
+const MenuBar = ({isActive,toggleMenu}) => {
+
   return (
     <MenuBarContainer>
       <HamburgerButton className="hamburger" onClick={toggleMenu}>

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Button from './component/Button'
+import Header from './Header'
 import useInput from './Hooks/useInput'
 
 const Login = () => {
@@ -21,12 +23,13 @@ const Login = () => {
   }
   return (
     <>
+    <Header/>
     <h1>로그인</h1>
     <form>
     <input value={userId} onChange={onChangeUserIdHandler}/>
     <input value={password} onChange={onChangPasswordHandler}/>
     </form>
-    <button onClick={onClickLoginHandler}>로그인</button>
+    <Button onClick={onClickLoginHandler}>로그인</Button>
     {warningNotice}
 
 

@@ -4,7 +4,9 @@ import * as CSS from './component/style'
 
 const Header = () => {
   return (
-    <div>Header</div>
+    <CSS.Header>
+    <CSS.HeaderTitle>SPRINT</CSS.HeaderTitle>
+    </CSS.Header>
   )
 }
 

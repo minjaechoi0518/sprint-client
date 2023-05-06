@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import Button from './component/Button'
 import Header from './Header'
 import useInput from './Hooks/useInput'
+import * as CSS from '../components/component/style'
 
 const Login = () => {
-  const [userName, onChangeUserIdHandler ] = useInput('')
+  const [userName, onChangeUserNameHandler ] = useInput('')
   const [password, onChangPasswordHandler] = useInput('')
 
   const [warningNotice, setWarningNotice] = useState('')
@@ -13,6 +14,7 @@ const Login = () => {
   const onClickLoginHandler = ()=>{
     if(userName.length <1 ){
       setWarningNotice('아이디를 입력해주세요')
+      console.log('아이디를 입력해주세요.')
       return;
     }
     if(password.length <1 ){
@@ -22,26 +24,30 @@ const Login = () => {
 
   }
   return (
-    <>
+    <div>
     <Header/>
-    <h1>로그인</h1>
-    <form>
-    <input value={userName} onChange={onChangeUserIdHandler}/>
-    <input value={password} onChange={onChangPasswordHandler}/>
-    </form>
-    <Button type='positive' 
-    onClick={onClickLoginHandler}>로그인</Button>
-    {warningNotice}
 
+    <CSS.Main>
+    <CSS.Title>로그인</CSS.Title>
+    <CSS.Form>
+    <CSS.Input value={userName} onChange={onChangeUserNameHandler}/>
+    <CSS.Input value={password} onChange={onChangPasswordHandler}/>
+    </CSS.Form>
+    {warningNotice}
+    <Button type='positive'
+    size='150'
+    onClick={onClickLoginHandler}>로그인</Button>
+    
 
     <div>
-    계정이 없으신가요?<Link to='/signUp'>
+    <span>계정이 없으신가요?</span><Link to='/signUp'>
       <Button type='positive' >회원가입</Button>
       </Link>
     </div>
+    </CSS.Main>
 
 
-    </>
+    </div>
   )
 }
 

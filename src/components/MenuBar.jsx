@@ -1,13 +1,6 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React from "react";
 
-function MenuBar() {
-  const [isActive, setIsActive] = useState(false);
-
-  const toggleMenu = () => {
-    setIsActive(!isActive);
-  };
-
+const MenuBar = () => {
   return (
     <MenuBarContainer>
       <HamburgerButton className="hamburger" onClick={toggleMenu}>
@@ -27,7 +20,7 @@ function MenuBar() {
       </MenuBarDropdown>
     </MenuBarContainer>
   );
-}
+};
 
 export default MenuBar;
 

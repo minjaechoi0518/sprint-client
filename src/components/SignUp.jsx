@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Button from './component/Button'
 import useInput from './Hooks/useInput'
 
 const SignUp = () => {
@@ -44,7 +45,7 @@ const SignUp = () => {
     <input value={email} onChange={onChangeEmailHandler} placeholder='이메일'/>
     </form>
     <div>{warningNotice}</div>
-    <button onClick={onClickSingUpHandler}>회원가입</button>
+    <Button onClick={onClickSingUpHandler}>회원가입</Button>
     </>
   )
 }

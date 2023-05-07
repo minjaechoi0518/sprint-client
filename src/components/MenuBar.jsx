@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Button } from "./component/style";
+import { Link } from "react-router-dom";
 
 const MenuBar = ({ isActive, toggleMenu }) => {
+  const [isMySprintOpen, setIsMySprintOpen] = useState(false);
+  const toggleMySprint = () => {
+    setIsMySprintOpen(!isMySprintOpen);
+  };
   return (
     <MenuBarContainer>
       <HamburgerButton className="hamburger" zIndex={100} onClick={toggleMenu}>
@@ -19,12 +24,27 @@ const MenuBar = ({ isActive, toggleMenu }) => {
             <a href="#">프로젝트 만들기</a>
           </li>
           <li className="btn-group">
-            <Button type="positive" href="#">
-              로그인
-            </Button>
-            <Button type="positive" href="#">
-              회원가입
-            </Button>
+            <Link to="/login">
+              <Button type="positive">Log in</Button>
+            </Link>
+            <Link to="/signUp">
+              <Button type="positive">Join us</Button>
+            </Link>
+          </li>
+          <li>
+            <Link to="/mySprint">
+              <Button onClick={toggleMySprint}>
+                My Sprint {isMySprintOpen ? "▲" : "▼"}
+              </Button>
+            </Link>
+            <div style={{ height: "10px" }}></div>
+            {isMySprintOpen && (
+              <div>
+                <Button type="negative">My Projects</Button>
+                <div style={{ height: "10px" }}></div>
+                <Button type="negative">My Study</Button>
+              </div>
+            )}
           </li>
         </ul>
       </MenuBarDropdown>

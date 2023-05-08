@@ -21,22 +21,19 @@ const handleSignUp = async (props) => {
   }
 }
 
-// //로그인 API
-// const handleLogin = async (props) => {
-//   try {
-//     const response = await instance.post(`/login`, {
-//       id: props.id,
-//       password: props.password
-//     })
-//     return response.data
-//   }
-//   catch (error) {
-//     if (error.response.status !== 201) {
-//       return error.response.data
-//     }
-//   }
-//   // throw new Error(error.message)
-// }
+//로그인 API
+const handleLogin = async (props) => {
+  try {
+    const response = await instance.post(`/api/user/login`, {
+      username: props.username,
+      password: props.password,
+    })
+    return response.data
+  }
+  catch (error) {
+    throw new Error(error.message)
+  }
+}
 
 // //인가 API
 // const getLoginData = async () => {
@@ -50,4 +47,4 @@ const handleSignUp = async (props) => {
 
 //   return response
 // }
-export { handleSignUp }
+export { handleSignUp, handleLogin }

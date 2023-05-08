@@ -6,7 +6,6 @@ import Login from "../components/Login";
 import SignUp from "../components/SignUp";
 import Home from "../page/Home";
 import Main from "../page/Main";
-import MySprint from "../components/MySprint";
 
 const Router = () => {
   return (
@@ -19,7 +18,6 @@ const Router = () => {
         <Route path="main" element={<Main />} />
         <Route path="mySprint" element={<MySprint />} />
         <Route path="detail" element={<Detail />} />
-
       </Routes>
     </BrowserRouter>
   );

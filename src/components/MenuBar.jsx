@@ -2,20 +2,22 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Button } from "./component/style";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { myProject, myStudy } from "../redux/modules/sprintMenu";
 
-const MenuBar = ({ isActive, toggleMenu, setFilterType }) => {
+const MenuBar = ({ isActive, toggleMenu}) => {
   const [isMySprintOpen, setIsMySprintOpen] = useState(false);
-
+  const dispatch = useDispatch();
   const toggleMySprint = () => {
     setIsMySprintOpen(!isMySprintOpen);
   };
 
   const handleMyProjectClick = () => {
-    setFilterType("My Project");
+    dispatch(myProject('project'))
   };
 
   const handleMyStudyClick = () => {
-    setFilterType("My Study");
+    dispatch(myStudy('study'))
   };
   return (
     <MenuBarContainer>

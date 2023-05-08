@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 
-const MyStudy = () => {
+const AllSprintList = () => {
     // const [cards, setCards] = useState([]);
 
   // useEffect(() => {
@@ -22,7 +22,7 @@ const MyStudy = () => {
   const cards = [
     {
     sprintId : 10,
-    title : 'String St1',
+    title : 'String All1',
     nickname : 'String',
     numLikes : 10,
     isLiked : true,
@@ -44,7 +44,7 @@ const MyStudy = () => {
         },
         {
           sprintId : 11,
-          title : 'String St2',
+          title : 'String All2',
           nickname : 'String',
           numLikes : 10,
           isLiked : true,
@@ -83,7 +83,8 @@ const MyStudy = () => {
   );
 };
 
-export default MyStudy;
+export default AllSprintList;
+
 const StContentContainer = styled.div`
   display: flex;
   flex-direction: column;

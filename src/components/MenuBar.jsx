@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Button } from "./component/style";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { myProject, myStudy } from "../redux/modules/sprintMenu";
 
 const MenuBar = ({ isActive, toggleMenu}) => {
   const [isMySprintOpen, setIsMySprintOpen] = useState(false);
+  const navigate =useNavigate()
   const dispatch = useDispatch();
   const toggleMySprint = () => {
     setIsMySprintOpen(!isMySprintOpen);
@@ -14,10 +15,13 @@ const MenuBar = ({ isActive, toggleMenu}) => {
 
   const handleMyProjectClick = () => {
     dispatch(myProject('project'))
+    navigate('/main')
+    
   };
 
   const handleMyStudyClick = () => {
     dispatch(myStudy('study'))
+    navigate('/main')
   };
   return (
     <MenuBarContainer>

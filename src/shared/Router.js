@@ -18,7 +18,6 @@ const Router = () => {
         <Route path="editor" element={<Editor />} />
         <Route path="main" element={<Main />} />
         <Route path="detail" element={<Detail />} />
-        <Route path="myStudy" element={<MyStudy />} />
       </Routes>
     </BrowserRouter>
   );

@@ -5,23 +5,22 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { myProject, myStudy } from "../redux/modules/sprintMenu";
 
-const MenuBar = ({ isActive, toggleMenu}) => {
+const MenuBar = ({ isActive, toggleMenu }) => {
   const [isMySprintOpen, setIsMySprintOpen] = useState(false);
-  const navigate =useNavigate()
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const toggleMySprint = () => {
     setIsMySprintOpen(!isMySprintOpen);
   };
 
   const handleMyProjectClick = () => {
-    dispatch(myProject('project'))
-    navigate('/main')
-    
+    dispatch(myProject("project"));
+    navigate("/main");
   };
 
   const handleMyStudyClick = () => {
-    dispatch(myStudy('study'))
-    navigate('/main')
+    dispatch(myStudy("study"));
+    navigate("/main");
   };
   return (
     <MenuBarContainer>
@@ -32,17 +31,23 @@ const MenuBar = ({ isActive, toggleMenu}) => {
       </HamburgerButton>
       <MenuBarDropdown className={`menu-bar ${isActive ? "active" : ""}`}>
         <ul>
-          <li>
-            <a href="#">스터디 / 프로젝트 만들기</a>
-          </li>
-          <li className="btn-group">
-            <Link to="/login">
-              <Button type="positive">Log in</Button>
+          <StMenuBarTopContainer>
+            <Link to="/editor">
+              <a href="#">스터디 / 프로젝트 만들기</a>
             </Link>
-            <Link to="/signUp">
-              <Button type="positive">Join us</Button>
-            </Link>
-          </li>
+            <li className="btn-group">
+              <Link to="/login">
+                <Button type="positive">Log in</Button>
+              </Link>
+              <Link to="/signUp">
+                <Button type="positive">Join us</Button>
+              </Link>
+            </li>
+          </StMenuBarTopContainer>
+          <div style={{ height: "33px" }}></div>
+          <Link to="/allSprint">
+            <a href="#">전체 리스트</a>
+          </Link>
           <li>
             <Button href="#" onClick={toggleMySprint}>
               My Sprint {isMySprintOpen ? "▲" : "▼"}
@@ -68,6 +73,11 @@ const MenuBar = ({ isActive, toggleMenu}) => {
 };
 
 export default MenuBar;
+
+const StMenuBarTopContainer = styled.div`
+  /* border: 1px solid black; */
+  transform: translateX(0%) translateY(-78px);
+`;
 
 const MenuBarContainer = styled.div`
   /* position: relative; */
@@ -148,7 +158,7 @@ const MenuBarDropdown = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
 
     & > * {
       margin: 0 5px;

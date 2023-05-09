@@ -7,6 +7,7 @@ import MyStudy from "../components/MyStudy";
 import SignUp from "../components/SignUp";
 import Home from "../page/Home";
 import Main from "../page/Main";
+import AllSprintList from "../components/AllSprintList";
 
 const Router = () => {
   return (
@@ -18,6 +19,7 @@ const Router = () => {
         <Route path="editor" element={<Editor />} />
         <Route path="main" element={<Main />} />
         <Route path="detail" element={<Detail />} />
+        <Route path="allSprint" element={<AllSprintList />} />
       </Routes>
     </BrowserRouter>
   );

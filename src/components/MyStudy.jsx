@@ -1,89 +1,80 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { Button } from "./component/style";
+import { useQuery } from "react-query";
+import { myStudy } from "../axios/api";
+
 import styled from "styled-components";
 
-
 const MyStudy = () => {
-    // const [cards, setCards] = useState([]);
-
-  // useEffect(() => {
-  //   const fetchCards = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         `${process.env.REACT_APP_SERVER_URL}/api/cards?type=My%20Study`
-  //       );
-  //       setCards(response.data);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-  //   fetchCards();
-  // }, []);
+  //API 연결
+  const { isLoading, isError, data } = useQuery("myStudy", myStudy);
+  // debugger;
+  console.log(data);
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error: {Error.message}</div>;
   const cards = [
     {
-    sprintId : 10,
-    title : 'String St1',
-    nickname : 'String',
-    numLikes : 10,
-    isLiked : true,
-    createdAt : 'LocalDateTime',
-    modifiedAt : 'LocalDateTime',
-    sprintType : 'Project',
-    fieldObjectList : [
-      {
-    fieldName : 'frontend',
-    fieldMemberCount : 3,
-    fieldMaxNum : 5,
-        } ,
-      {
-    fieldName : 'backend',
-    fieldMemberCount : 2,
-    fieldMaxNum : 3
-        },
-          ]
+      sprintId: 10,
+      title: "Study1",
+      nickname: "String",
+      numLikes: 10,
+      isLiked: true,
+      createdAt: "LocalDateTime",
+      modifiedAt: "LocalDateTime",
+      sprintType: "Project",
+      fieldObjectList: [
+        {
+          fieldName: "FE",
+          fieldMemberCount: 3,
+          fieldMaxNum: 5,
         },
         {
-          sprintId : 11,
-          title : 'String St2',
-          nickname : 'String',
-          numLikes : 10,
-          isLiked : true,
-          createdAt : 'LocalDateTime',
-          modifiedAt : 'LocalDateTime',
-          sprintType : 'Project',
-          fieldObjectList : [
-            {
-          fieldName : 'frontend',
-          fieldMemberCount : 3,
-          fieldMaxNum : 5,
-              } ,
-            {
-          fieldName : 'backend',
-          fieldMemberCount : 2,
-          fieldMaxNum : 3
-              },
-                ]
-              }
-    ]
-
+          fieldName: "BE",
+          fieldMemberCount: 2,
+          fieldMaxNum: 3,
+        },
+      ],
+    },
+    {
+      sprintId: 11,
+      title: "Study2",
+      nickname: "String",
+      numLikes: 10,
+      isLiked: true,
+      createdAt: "LocalDateTime",
+      modifiedAt: "LocalDateTime",
+      sprintType: "Project",
+      fieldObjectList: [
+        {
+          fieldName: "FE",
+          fieldMemberCount: 3,
+          fieldMaxNum: 5,
+        },
+        {
+          fieldName: "BE",
+          fieldMemberCount: 2,
+          fieldMaxNum: 4,
+        },
+      ],
+    },
+  ];
 
   return (
     <>
-    <StCardList>
-    {cards.map((card) => (
-      <StCard key={card.sprintId}>
-        <StCardImage src={card.imageUrl} alt={card.title} />
-        <StCardTitle>{card.title}</StCardTitle>
-        <StCardDescription>{card.description}</StCardDescription>
-        <StCardButton>상세보기</StCardButton>
-      </StCard>
-    ))}
-  </StCardList>
-</>
+      <StCardList>
+        {cards.map((card) => (
+          <StCard key={card.sprintId}>
+            <StCardTitle>{card.title}</StCardTitle>
+            <StCardDescription>{card.description}</StCardDescription>
+            <Button type="positive">more</Button>
+          </StCard>
+        ))}
+      </StCardList>
+    </>
   );
 };
 
 export default MyStudy;
+
 const StContentContainer = styled.div`
   display: flex;
   flex-direction: column;

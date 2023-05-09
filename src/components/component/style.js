@@ -401,7 +401,7 @@ position:absolute;
 bottom:14%;
 left:12rem;
 display:flex;
-gap:10px;
+gap:20px;
 `
 export const Content = styled.form`
 padding:20px;

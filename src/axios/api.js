@@ -103,7 +103,8 @@ const allSprint = async () => {
 // My Study 조회
 const myStudy = async () => {
   try {
-    const response = await jwtInstance.get(`/api/sprint/mystudy`);
+    const response = await jwtInstance.get(`/api/sprint`);
+    // const response = await jwtInstance.get(`/api/sprint/mystudy`);
     return response.data;
   } catch (error) {
     throw new Error(error.message);
@@ -114,7 +115,8 @@ const myStudy = async () => {
 // My Project 조회
 const myProject = async () => {
   try {
-    const response = await jwtInstance.get(`/api/sprint/myproject`);
+    const response = await jwtInstance.get(`/api/sprint`);
+    // const response = await jwtInstance.get(`/api/sprint/myproject`);
     return response.data;
   } catch (error) {
     throw new Error(error.message);

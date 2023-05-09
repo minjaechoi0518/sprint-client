@@ -8,7 +8,6 @@
 
   const Main = () => {
     const sprintType = useSelector(state => state.sprint.sprintList);
-  console.log('sprintType:',sprintType)
 
 
   return (

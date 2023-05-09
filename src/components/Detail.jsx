@@ -80,6 +80,7 @@ const Detail = () => {
         placeholder='댓글을 입력해주세요.'/>
         <Button size='80' type='positive'>등록</Button>
       </CSS.CommentForm >
+
       <Comment commentList={data.commentList}/>
       </section>
     </CSS.Main>

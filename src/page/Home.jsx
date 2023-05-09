@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <>
     <Header/>
-    <CSS.HomeTitle>유리 아이스크림 먹을꺼에연 호호호호호호호호호호호호호호호호호호호호호호</CSS.HomeTitle>
+    <CSS.HomeTitle>여긴 홈이에여! </CSS.HomeTitle>
     </>
   )
 }

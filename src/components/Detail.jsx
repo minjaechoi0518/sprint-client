@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom'
 import IsLike from './IsLike'
 import { useQuery } from 'react-query'
 import { detailSprint } from '../axios/api'
+import ApplyModal from './ApplyModal'
 
 
 
@@ -20,8 +21,11 @@ const Detail = () => {
   
   const [comment,onChangeCommentHandler] =useInput('')
   const [modify,setModify] = useState(false)
-  // const [Liked,setLiked]= useState(true)
+  const [apply,setApply]= useState(false)
 
+  const applyButtonHandler = () => {
+    setApply(!apply)
+  }
   const {isLoading, isError, data} = useQuery('detailSprint',()=>detailSprint(1))
   console.log(data)
   if(isLoading) return <div>Loading...</div>
@@ -46,7 +50,8 @@ const Detail = () => {
           fieldObjectList={data.fieldObjectList}/>
         </ CSS.DetailTitle>
         <CSS.ApplyButtonBox>
-        <Button size='180' type='positive'>신청하기</Button>
+        <Button size='180' type='positive' onClick={applyButtonHandler}>신청하기</Button>
+        {apply && <ApplyModal apply={apply} setApply={setApply}/>}
         </CSS.ApplyButtonBox>
         </CSS.DetailSection>
 

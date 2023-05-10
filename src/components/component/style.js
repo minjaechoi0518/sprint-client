@@ -73,28 +73,28 @@ export const Button = styled.button`
   padding: 10px;
   width: ${(props) => `${props.size}px;`};
 
-  font-weight: 600;
+  font-weight: 600;}
   &:hover {
     background-color: ${(props) => {
-      switch (props.type) {
-        case "positive":
-          return "#579BB1";
-        case "negative":
-          return "#CE7777";
-        default:
-          return "transparent";
-      }
-    }};
+    switch (props.type) {
+      case "positive":
+        return "#579BB1";
+      case "negative":
+        return "#CE7777";
+      default:
+        return "transparent";
+    }
+  }};
     color: ${(props) => {
-      switch (props.type) {
-        case "positive":
-          return "#F0F0F0";
-        case "negative":
-          return "#F8F4EA";
-        default:
-          return "#CE7777";
-      }
-    }};
+    switch (props.type) {
+      case "positive":
+        return "#F0F0F0";
+      case "negative":
+        return "#F8F4EA";
+      default:
+        return "#CE7777";
+    }
+  }};
 
     transform: scale(1.05);
     cursor: pointer;

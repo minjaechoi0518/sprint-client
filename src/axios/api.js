@@ -112,8 +112,10 @@ const isLikePost = async (props) => {
 
 
 
+
 //내가 만든 스프린트 조회 
 const myMakeSprint = async () => {
+
   try {
     const response = await jwtInstance.get(`/api/sprint/mysprint`);
     return response.data;
@@ -121,7 +123,6 @@ const myMakeSprint = async () => {
     throw new Error(error.message);
   }
 };
-
 
 // 참여중인 스프린트 조회
 const participateSprint = async () => {
@@ -134,9 +135,11 @@ const participateSprint = async () => {
 };
 
 // 댓글 작성(등록)
-const writeComment = async (sprintId) => {
+const writeComment = async (sprintId, newComment) => {
   try {
-    const response = await jwtInstance.post(`/api/${sprintId}`);
+    const response = await jwtInstance.post(`/api/${sprintId}`, {
+      comment: newComment,
+    });
     return response.data;
   } catch (error) {
     throw new Error(error.message);
@@ -144,11 +147,9 @@ const writeComment = async (sprintId) => {
 };
 
 // 댓글 삭제하기
-const deleteComment = async (props) => {
+const deleteComment = async (sprintId, commentId) => {
   try {
-    const response = await jwtInstance.delete(
-      `/api/${props.sprintId}/${props.commentId}`
-    );
+    const response = await jwtInstance.delete(`/api/${sprintId}/${commentId}`);
     return response.data;
   } catch (error) {
     throw new Error(error.message);

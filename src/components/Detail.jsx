@@ -14,9 +14,9 @@ import { useMutation, useQuery } from "react-query";
 import { deleteSprint, detailSprint } from "../axios/api";
 import ApplyModal from "./ApplyModal";
 
-
 const Detail = () => {
   const params = useParams();
+
   const navigate= useNavigate()
   const mutation = useMutation(deleteSprint, {
     onSuccess: () => {
@@ -25,6 +25,7 @@ const Detail = () => {
       navigate('/main')
     },
   });
+
 
   const [modify, setModify] = useState(false);
   const [apply, setApply] = useState(false);

@@ -45,16 +45,16 @@ const Comment = (props) => {
               </CSS.CommentTitle>
 
               <CSS.CommentContent>{item.comment}</CSS.CommentContent>
-              {item.user === "user123" && (
-                <CSS.CommentButton>
 
-                  <CSS.CommentButton
+
+
+                  <Button
                     onClick={() => handleDeleteComment(item.id)}
                   >
                     삭제
-                  </CSS.CommentButton>
-                </CSS.CommentButton>
-              )}
+                  </Button>
+
+              
             </CSS.CommentBox>
           );
         })}

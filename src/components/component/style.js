@@ -215,7 +215,7 @@ flex-direction:column;
 export const CheckBox = styled.div`
 display:flex;
 gap:20px;
-margin-top:15px;
+margin-bottom:15px;
 `
 export const UlBox = styled.ul`
 display:flex;
@@ -409,10 +409,11 @@ display:flex;
 flex-direction:column;
 font-size:13px;
 color:gray;
-margin-top:30px;
+margin-top:50px;
 `
 export const ModalInput = styled.input`
-margin:20px;
+margin-top:15px;
+margin-bottom:20px;
 width:400px;
 padding:10px;
 background-color:transparent;
@@ -425,7 +426,6 @@ border-bottom:1px solid gray;
 //ApplyModal
 export const PositionBox = styled.div`
 font-size:20px;
-margin-left:20px;
 `
 
 //List(myStudy,MyProject,AllSprintList)
@@ -433,7 +433,7 @@ export const CardListsMain = styled.main`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width:1300px;
+  width:1400px;
 
 `;
 
@@ -442,30 +442,32 @@ export const SprintBox = styled.article`
   border-radius: 4px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   margin: 16px;
-  width: 320px;
-  height:220px;
-
-
+  width: 420px;
+  height:280px;
+  border-radius:8px;
 `;
 
 export const CardTitle = styled.h2`
-  font-size: 30px;
+  font-size: 27px;
   font-weight: bold;
   margin: 0;
   padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+
 `;
 
 export const CardContent = styled.div`
-  border-top: 1px solid #f0f0f0;
   padding: 16px;
   display:flex;
   flex-direction:row;
   gap:40px;
+  font-size:18px;
+  margin:40px;
 `;
 
 export const CardField = styled.div`
   color: #666;
-  font-size: 14px;
+  font-size: 17px;
   margin-bottom: 8px;
 `;
 
@@ -510,4 +512,9 @@ position:relative;
 &:hover{
     transform: scale(1.05);
   }
+`
+export const heartBox = styled.div`
+position:absolute;
+right:3rem;
+bottom: 2rem;
 `

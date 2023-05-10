@@ -17,7 +17,6 @@ const AllSprintList = () => {
   //API 연결
   const { isLoading, isError, data } = useQuery("allSprint", allSprint);
   // debugger;
-
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error: {Error.message}</div>;
   const detailOpen = (sprintId) =>{
@@ -31,6 +30,7 @@ const AllSprintList = () => {
 
   return (
     <CSS.background>
+      나는 전체야
     <CSS.CardListsMain>
       {data.map((item) => (
         <CSS.contentBox>
@@ -55,9 +55,10 @@ const AllSprintList = () => {
           </CSS.CardContent>
           <CSS.buttonBoxHandler>
             <Button onClick={()=>detailOpen(item.sprintId)} type="positive">more</Button>
-            <IsLike isLike={item}/>
             </CSS.buttonBoxHandler>
-
+            <CSS.heartBox>
+            <IsLike data={item}/>
+            </CSS.heartBox>
         </CSS.SprintBox>
         </CSS.contentBox>
       ))}

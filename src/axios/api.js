@@ -87,7 +87,7 @@ const ApplySprint = async (props) => {
 
 //sprint 좋아요
 const isLikePost = async (props) => {
-  await jwtInstance.post(`/api/like/${props}`);
+  await jwtInstance.post(`/api/like/sprint/${props}`);
 };
 
 
@@ -95,6 +95,7 @@ const isLikePost = async (props) => {
 const allSprint = async () => {
   try {
     const response = await jwtInstance.get(`/api/sprint`);
+    console.log(`reportError.data`, response.data)
     return response.data;
   } catch (error) {
     throw new Error(error.message);

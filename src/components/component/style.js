@@ -32,6 +32,7 @@ export const Button = styled.button`
   border: none;
   border-radius: 8px;
   background-color: ${(props) => {
+
     switch (props.type) {
       case "positive":
         return "#F0F0F0";
@@ -58,15 +59,43 @@ export const Button = styled.button`
     }
   }};
     color: ${(props) => {
+
     switch (props.type) {
       case "positive":
         return "#F0F0F0";
       case "negative":
         return "#F8F4EA";
       default:
-        return "#CE7777";
+        return "transparent";
     }
   }};
+  color: ${(props) => (props.type === "positive" ? "#3C486B" : "#243763")};
+  padding: 10px;
+  width: ${(props) => `${props.size}px;`};
+
+  font-weight: 600;
+  &:hover {
+    background-color: ${(props) => {
+      switch (props.type) {
+        case "positive":
+          return "#579BB1";
+        case "negative":
+          return "#CE7777";
+        default:
+          return "transparent";
+      }
+    }};
+    color: ${(props) => {
+      switch (props.type) {
+        case "positive":
+          return "#F0F0F0";
+        case "negative":
+          return "#F8F4EA";
+        default:
+          return "#CE7777";
+      }
+    }};
+
     transform: scale(1.05);
     cursor: pointer;
   }
@@ -357,49 +386,7 @@ export const CommentContentInput = styled.input`
   }
 `;
 
-export const CommentButton = styled.button`
-  border: none;
-  border-radius: 8px;
-  background-color: ${(props) => {
-    switch (props.type) {
-      case "positive":
-        return "#F0F0F0";
-      case "negative":
-        return "#F8F4EA";
-      default:
-        return "transparent";
-    }
-  }};
-  color: ${(props) => (props.type === "positive" ? "#3C486B" : "#243763")};
-  padding: 10px;
-  width: ${(props) => `${props.size}px;`};
 
-  font-weight: 600;
-  &:hover {
-    background-color: ${(props) => {
-    switch (props.type) {
-      case "positive":
-        return "#579BB1";
-      case "negative":
-        return "#CE7777";
-      default:
-        return "transparent";
-    }
-  }};
-    color: ${(props) => {
-    switch (props.type) {
-      case "positive":
-        return "#F0F0F0";
-      case "negative":
-        return "#F8F4EA";
-      default:
-        return "#CE7777";
-    }
-  }};
-    transform: scale(1.05);
-    cursor: pointer;
-  }
-`;
 
 export const CommentTitle = styled.h1`
   width: 800px;
@@ -579,6 +566,7 @@ right:3rem;
 bottom: 2rem;
 `
 
+
 export const MenuBarTopContainer = styled.div`
   /* border: 1px solid black; */
   transform: translateX(0%) translateY(-78px);
@@ -668,3 +656,4 @@ export const MenuBarDropdown = styled.div`
     }
   }
 `;
+

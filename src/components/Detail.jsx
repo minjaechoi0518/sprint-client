@@ -5,6 +5,7 @@ import * as CSS from "../components/component/style";
 import Comment from "./Comment";
 import SupportStatus from "./SupportStatus";
 import useInput from "./Hooks/useInput";
+
 import { useState } from "react";
 import DetailModify from "./DetailModify";
 import { Link, useParams } from "react-router-dom";
@@ -13,10 +14,11 @@ import { useQuery } from "react-query";
 import { detailSprint } from "../axios/api";
 import ApplyModal from "./ApplyModal";
 
+
 const Detail = () => {
   const params = useParams();
 
-  const [comment, onChangeCommentHandler] = useInput("");
+
   const [modify, setModify] = useState(false);
   const [apply, setApply] = useState(false);
 
@@ -34,6 +36,7 @@ const Detail = () => {
   // const isLikeHandler = ()=>{
   //   setLiked(!Liked)
   // }
+
   return (
     <>
       <Header />
@@ -92,7 +95,7 @@ const Detail = () => {
           {/* <CSS.CommentForm onSubmit={(e) => e.preventDefault()}>
             <CSS.CommentInput
               value={comment}
-              onChange={onChangeCommentHandler}
+
               placeholder="댓글을 입력해주세요."
             />
             <Button size="80" type="positive">

@@ -92,6 +92,7 @@ const isLikePost = async (props) => {
 const allSprint = async () => {
   try {
     const response = await jwtInstance.get(`/api/sprint`);
+
     return response.data;
   } catch (error) {
     throw new Error(error.message);
@@ -109,7 +110,9 @@ const myStudy = async () => {
   }
 };
 
+
 // 참여중인 스프린트 조회
+
 const myProject = async () => {
   try {
     const response = await jwtInstance.get(`api/sprint/joinlist`);

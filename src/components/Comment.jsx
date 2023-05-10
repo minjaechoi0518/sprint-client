@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { deleteComment } from "../axios/api";
 import * as CSS from "../components/component/style";
-import { writeComment, deleteComment } from "../axios/api";
 
 import Button from "./component/Button";
 

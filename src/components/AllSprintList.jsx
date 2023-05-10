@@ -12,11 +12,10 @@ import IsLike from "./IsLike";
 
 const AllSprintList = () => {
   const navigate = useNavigate();
-
   // const [isVisible, setIsVisible] = useState('')
   //API 연결
   const { isLoading, isError, data } = useQuery("allSprint", allSprint);
-  // debugger;
+console.log(data)
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error: {Error.message}</div>;
 
@@ -31,7 +30,6 @@ const AllSprintList = () => {
 
   return (
     <CSS.background>
-
 
     <CSS.CardListsMain>
       {data.map((item) => (

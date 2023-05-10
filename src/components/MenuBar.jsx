@@ -3,9 +3,10 @@ import styled from "styled-components";
 import { Button } from "./component/style";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import * as CSS from "../components/component/style";
+import * as CSS from "./component/style";
 import { allList, listRefer, myProject, myStudy } from "../redux/modules/sprintMenu";
 import Cookies from "js-cookie";
+import Editor from "./Editor";
 
 const MenuBar = ({ isActive, toggleMenu }) => {
   const [isMySprintOpen, setIsMySprintOpen] = useState(false);
@@ -18,13 +19,13 @@ const MenuBar = ({ isActive, toggleMenu }) => {
     setIsMySprintOpen(!isMySprintOpen);
   };
 
-  const handleMyProjectClick = () => {
-    dispatch(listRefer("project"));
+  const handleMyMakeSprintProjectClick = () => {
+    dispatch(listRefer("MyMakeSprint"));
     navigate("/main");
   };
 
-  const handleMyStudyClick = () => {
-    dispatch(listRefer("study"));
+  const handleParticipateSprintClick = () => {
+    dispatch(listRefer("ParticipateSprint"));
     navigate("/main");
   };
   const handleAllListClickHandler = () => {
@@ -35,6 +36,13 @@ const MenuBar = ({ isActive, toggleMenu }) => {
     Cookies.remove('token')
     setIsLoggedIn(false)
     navigate('/main')
+  }
+  const Editor = () => {
+    if(!isLoggedIn){
+      alert('로그인 후 이용 가능합니다.')
+      return;
+    }
+    navigate('/editor')
   }
 
   return (
@@ -59,10 +67,10 @@ const MenuBar = ({ isActive, toggleMenu }) => {
             {isLoggedIn && <li className="btn-group">
                 <Button size='100' type="negative" onClick={logoutOnClickHandler}>Log out</Button>
             </li>}
-            <Link to="/editor">
+
             <div style={{ height: "50px" }}></div>
-              <Button size='160' type="positive"> 스터디 / 프로젝트 만들기</Button>
-            </Link>
+              <Button size='160' type="positive" onClick={Editor}> 스터디 / 프로젝트 만들기</Button>
+
 
           </CSS.MenuBarTopContainer>
 
@@ -78,18 +86,28 @@ const MenuBar = ({ isActive, toggleMenu }) => {
             <div style={{ height: "10px" }}></div>
             {isMySprintOpen && (
               <div>
-                <Button type="negative" onClick={handleMyProjectClick}>
-                  참여중인 SPRINT
+                <Button type="negative" onClick={handleMyMakeSprintProjectClick}>
+                내가 만든 SPRINT
                 </Button>
                 <div style={{ height: "20px" }}></div>
-                <Button type="negative" onClick={handleMyStudyClick}>
-                  내가 만든 SPRINT
+                <Button type="negative" onClick={handleParticipateSprintClick}>
+                  참여중인 SPRINT
                 </Button>
               </div>
             )}
           </li>
         </ul>
+        <footer>
+          항해99 14기 14조<br/><br/>
+          SPRINT <br/>
+          (단거리달리기)<br/><br/>
+          최유리 최민재<br/><br/>
+          강재형 정종현<br/>
+          김민규 황인용<br/><br/>
+          
+        </footer>
       </CSS.MenuBarDropdown>
+
     </CSS.MenuBarContainer>
   );
 };

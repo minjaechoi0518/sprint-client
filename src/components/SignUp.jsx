@@ -23,7 +23,7 @@ const SignUp = () => {
       navigate('/login')
     },
     onError:(error)=>{
-      alert(error.message)
+      setWarningNotice(error.message)
     }
 })
 
@@ -70,8 +70,8 @@ const SignUp = () => {
     <CSS.Title>회원가입</CSS.Title>
     <CSS.Form onSubmit={(e)=>e.preventDefault()}>
     <CSS.Input value={username} onChange={onChangeUserIdHandler} placeholder='아이디'/>
-    <CSS.Input value={password} onChange={onChangePasswordHandler} placeholder='비밀번호'/>
-    <CSS.Input value={checkPassword} onChange={onChangeCheckPasswordHandler} placeholder='비밀번호 확인'/>
+    <CSS.Input type='password' value={password} onChange={onChangePasswordHandler} placeholder='비밀번호'/>
+    <CSS.Input type='password' value={checkPassword} onChange={onChangeCheckPasswordHandler} placeholder='비밀번호 확인'/>
     <CSS.Input value={nickname} onChange={onChangeNicknameHandler} placeholder='닉네임'/>
     <CSS.Input type='email' value={email} onChange={onChangeEmailHandler} placeholder='이메일'/>
     </CSS.Form>

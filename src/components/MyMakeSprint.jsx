@@ -2,19 +2,19 @@ import styled from "styled-components";
 import { Button } from "./component/style";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "react-query";
-import { allSprint, myProject } from "../axios/api";
+import { allSprint, myMakeSprint, myProject } from "../axios/api";
 import { useState } from "react";
 import Cookies from "js-cookie";
-import * as CSS from '../components/component/style'
+import * as CSS from './component/style'
 import IsLike from "./IsLike";
 
 
 
-const MyProject = () => {
+const MyMakeSprint = () => {
   const navigate = useNavigate()
   // const [isVisible, setIsVisible] = useState('')
   //API 연결
-  const { isLoading, isError, data } = useQuery("myProject", myProject);
+  const { isLoading, isError, data } = useQuery("myMakeSprint", myMakeSprint);
   // debugger;
 
   if (isLoading) return <div>Loading...</div>;
@@ -31,7 +31,6 @@ const MyProject = () => {
 
   return (
     <CSS.background>
-      나는 프로젝트야
     <CSS.CardListsMain>
       {data.map((item) => (
         <CSS.contentBox>
@@ -69,6 +68,6 @@ const MyProject = () => {
 };
 
 
-export default MyProject;
+export default MyMakeSprint;
 
 

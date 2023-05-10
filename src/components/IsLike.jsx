@@ -1,16 +1,23 @@
 import React, { useState } from "react";
-import { useMutation } from "react-query";
+import { useEffect } from "react";
+import { QueryClient, useMutation, useQueryClient } from "react-query";
 import { isLikePost } from "../axios/api";
 import * as CSS from "../components/component/style";
 
 const IsLike = (props) => {
-  const [Liked, setLiked] = useState(props.data.IsLike);
+  //리액트 쿼리 관련
+  const queryClient = useQueryClient();
+  const [Liked, setLiked] = useState(props.data.isLiked);
   const mutation = useMutation(isLikePost, {
     onSuccess: () => {
-      // queryClient.invalidateQueries("getBoards")
+      queryClient.invalidateQueries("allSprint")
+      queryClient.invalidateQueries("detailSprint")
+
     },
   });
-
+  useEffect(()=>{
+    setLiked(props.data.isLiked)
+  },[props.data])
   const isLikeHandler = () => {
     setLiked(!Liked);
     mutation.mutate(props.data.sprintId);

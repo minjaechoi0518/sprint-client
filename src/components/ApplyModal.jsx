@@ -14,9 +14,13 @@ const ApplyModal = ({setApply,apply,data}) => {
   const mutation = useMutation(ApplySprint,{
     onSuccess: ()=>{
       alert('신청이 완료 되었습니다.')
+    setApply(!apply)
+
     },
     onError:(error) =>{
-      alert('실패')
+      setWarningNotice(error.message)
+      // console.log('error:',error)
+      // console.log('error.message:',error.message)
     }
   })
   const application = {
@@ -26,14 +30,11 @@ const ApplyModal = ({setApply,apply,data}) => {
   }
 
   const onClickApplyButtonHandler = () =>{
-    const urlRegex = /^(http(s)?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
-    if(link === !urlRegex.test(link)){
-      setWarningNotice('URL형식으로 입력해주세요.')
+    if(link.length<1){
+      setWarningNotice('url을 입력해주세요.')
       return;
     }
     mutation.mutate(application)
-    setApply(!apply)
-
   }
 
   const onClickCancelModalHandler = ()=>{

@@ -22,8 +22,7 @@ const Login = () => {
       Cookies.set('token',data,{expires:expiresInSeconds})
     },
     onError:(error)=>{
-      // alert(error.message)
-      alert(error)
+      setWarningNotice(error.message)
     }
 })
   const newLoginPost = {
@@ -54,9 +53,9 @@ const Login = () => {
       <CSS.LoginBox>
     <CSS.Title>로그인</CSS.Title>
     <CSS.Form onSubmit={(e)=>e.preventDefault()}>
-    <CSS.Input value={username} onChange={onChangeUsernameHandler}
+    <CSS.Input  value={username} onChange={onChangeUsernameHandler}
     placeholder='USER ID'/>
-    <CSS.Input value={password} onChange={onChangPasswordHandler}
+    <CSS.Input type='password' value={password} onChange={onChangPasswordHandler}
     placeholder='PASSWORD'/>
     </CSS.Form>
     <CSS.WarningNotice>{warningNotice}</CSS.WarningNotice>

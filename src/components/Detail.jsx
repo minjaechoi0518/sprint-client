@@ -8,16 +8,23 @@ import useInput from "./Hooks/useInput";
 
 import { useState } from "react";
 import DetailModify from "./DetailModify";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import IsLike from "./IsLike";
-import { useQuery } from "react-query";
-import { detailSprint } from "../axios/api";
+import { useMutation, useQuery } from "react-query";
+import { deleteSprint, detailSprint } from "../axios/api";
 import ApplyModal from "./ApplyModal";
 
 
 const Detail = () => {
   const params = useParams();
-
+  const navigate= useNavigate()
+  const mutation = useMutation(deleteSprint, {
+    onSuccess: () => {
+      // queryClient.invalidateQueries("getBoards")
+      alert("삭제성공");
+      navigate('/main')
+    },
+  });
 
   const [modify, setModify] = useState(false);
   const [apply, setApply] = useState(false);
@@ -30,12 +37,14 @@ const Detail = () => {
   );
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error: {Error.message}</div>;
+
+  const deleteOnClickButtonHandler = (id) => {
+    mutation.mutate(id)
+  }
+
   const onClickModifyHandler = () => {
     setModify(!modify);
   };
-  // const isLikeHandler = ()=>{
-  //   setLiked(!Liked)
-  // }
 
   return (
     <>
@@ -64,8 +73,6 @@ const Detail = () => {
             <CSS.DetailContent>{data.content}</CSS.DetailContent>
             <CSS.DetailEdit>
               <CSS.DetailLike>
-                {/* {Liked ? 
-          <CSS.Heart onClick={isLikeHandler}/>:<CSS.BeanHeart onClick={isLikeHandler}/>}  */}
                 <IsLike data={data} />
 
                 <CSS.Like>좋아요 {data.numLikes} 개</CSS.Like>
@@ -80,7 +87,9 @@ const Detail = () => {
                   >
                     수정
                   </Button>
-                  <Button size="80" type={"negative"}>
+                  <Button 
+                  onClick={()=>deleteOnClickButtonHandler(data.sprintId)}
+                  size="80" type={"negative"}>
                     삭제
                   </Button>
                 </CSS.DetailButtonBox>
@@ -92,17 +101,6 @@ const Detail = () => {
           <DetailModify data={data} modify={modify} setModify={setModify} />
         )}
         <section>
-          {/* <CSS.CommentForm onSubmit={(e) => e.preventDefault()}>
-            <CSS.CommentInput
-              value={comment}
-
-              placeholder="댓글을 입력해주세요."
-            />
-            <Button size="80" type="positive">
-              등록
-            </Button>
-          </CSS.CommentForm> */}
-
           <Comment commentList={data.commentList} />
         </section>
       </CSS.Main>

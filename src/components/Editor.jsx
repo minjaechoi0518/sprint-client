@@ -21,8 +21,9 @@ const Editor = () => {
   const navigate = useNavigate()
   const mutation = useMutation(addSprint, {
     onSuccess: () => {
-      // queryClient.invalidateQueries("getBoards")
       alert("작성 저장 성공");
+    navigate('/main')
+
     },
   });
 
@@ -80,12 +81,11 @@ const Editor = () => {
       return;
     }
 
-    if (frontend === 0 && backend === 0 && manager === 0 && design === 0) {
+    if (frontend < 0 || backend < 0 || manager < 0 || design < 0) {
       setWarningNotice("최대인원을 한명이라도 적어주세요.");
       return;
     }
     mutation.mutate(newSprint);
-    navigate('/main')
   };
 
   return (

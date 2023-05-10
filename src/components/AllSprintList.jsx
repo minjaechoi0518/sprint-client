@@ -32,7 +32,6 @@ const AllSprintList = () => {
   return (
     <CSS.background>
 
-      나는 전체야
     <CSS.CardListsMain>
       {data.map((item) => (
         <CSS.contentBox>

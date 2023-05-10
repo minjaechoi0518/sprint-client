@@ -1,23 +1,22 @@
 import React, { useState } from "react";
 import * as CSS from "../components/component/style";
 import { writeComment, deleteComment } from "../axios/api";
-
 import Button from "./component/Button";
+import useInput from "./Hooks/useInput";
 
 const Comment = (props) => {
-  const [comment, setComment] = useState("");
+  const [comment, onChangeCommentHandler] = useInput("");
 
   const handleWriteComment = () => {
     const commentData = {
       content: comment,
-      username: "user123", // Replace with the actual user who wrote the comment
-      nickname: "nickname", // Replace with the actual user's nickname
+      username: "", // Replace with the actual user who wrote the comment
+      nickname: props.sprintId,
     };
   };
 
   const handleDeleteComment = (commentId) => {
     deleteComment(props.sprintId, commentId);
-
   };
 
   return (
@@ -26,7 +25,7 @@ const Comment = (props) => {
         <CSS.CommentForm onSubmit={(e) => e.preventDefault()}>
           <CSS.CommentInput
             value={comment}
-            onChange={(e) => setComment(e.target.value)}
+            onChange={onChangeCommentHandler}
             placeholder="댓글을 입력해주세요."
           />
           <CSS.CommentButtonBox>
@@ -37,7 +36,6 @@ const Comment = (props) => {
         </CSS.CommentForm>
 
         {props.commentList.map((item) => {
-
           return (
             <CSS.CommentBox key={item.id}>
               <CSS.CommentTitle>
@@ -46,15 +44,13 @@ const Comment = (props) => {
 
               <CSS.CommentContent>{item.comment}</CSS.CommentContent>
 
-
-
-                  <Button
-                    onClick={() => handleDeleteComment(item.id)}
-                  >
-                    삭제
-                  </Button>
-
-              
+              <Button
+                size="80"
+                type="negative"
+                onClick={() => handleDeleteComment(item.id)}
+              >
+                삭제
+              </Button>
             </CSS.CommentBox>
           );
         })}

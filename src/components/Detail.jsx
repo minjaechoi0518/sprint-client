@@ -89,7 +89,7 @@ const Detail = () => {
           <DetailModify data={data} modify={modify} setModify={setModify} />
         )}
         <section>
-          <CSS.CommentForm onSubmit={(e) => e.preventDefault()}>
+          {/* <CSS.CommentForm onSubmit={(e) => e.preventDefault()}>
             <CSS.CommentInput
               value={comment}
               onChange={onChangeCommentHandler}
@@ -98,7 +98,7 @@ const Detail = () => {
             <Button size="80" type="positive">
               등록
             </Button>
-          </CSS.CommentForm>
+          </CSS.CommentForm> */}
 
           <Comment commentList={data.commentList} />
         </section>

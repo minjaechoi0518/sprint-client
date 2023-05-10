@@ -61,11 +61,11 @@ const MenuBar = ({ isActive, toggleMenu }) => {
             {isMySprintOpen && (
               <div>
                 <Button type="negative" onClick={handleMyProjectClick}>
-                  My Project
+                  참여중인 SPRINT
                 </Button>
                 <div style={{ height: "10px" }}></div>
                 <Button type="negative" onClick={handleMyStudyClick}>
-                  My Study
+                  내가 만든 SPRINT
                 </Button>
               </div>
             )}

@@ -14,10 +14,8 @@ import { useQuery } from "react-query";
 import { detailSprint } from "../axios/api";
 import ApplyModal from "./ApplyModal";
 
-
 const Detail = () => {
   const params = useParams();
-
 
   const [modify, setModify] = useState(false);
   const [apply, setApply] = useState(false);

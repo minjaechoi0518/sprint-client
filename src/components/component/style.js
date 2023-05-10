@@ -1,12 +1,27 @@
 import styled from "styled-components";
 import Tenada from "../style/fonts/Tenada.ttf";
+import LF from "../style/fonts/LF.ttf";
 import heart from "../style/image/heart.png";
 import beanHeart from "../style/image/beanHeart.png";
 import homeIcon from "../style/image/homeIcon.png";
+import signIcon from "../style/image/signIcon.png"
+import uri from "../style/image/uri.png"
+import cR1 from "../style/image/CR1.png"
+import cR2 from "../style/image/CR2.png"
+import cR3 from "../style/image/CR3.png"
+import cR4 from "../style/image/CR4.png"
+import cR5 from "../style/image/CR5.png"
 
-export const HomeTitle = styled.div`
-  font-size: 20px;
+export const FontStyle = styled.div`
+  @font-face {
+    text-align: center;
+    font-family: 'LeferiPoint-WhiteObliqueA';
+    src: url(${LF}) format("woff2");
+  }
+  font-family: 'LeferiPoint-WhiteObliqueA';
 `;
+
+
 
 //Header
 export const HeaderTitle = styled.h1`
@@ -271,17 +286,17 @@ export const DetailSection = styled.section`
   flex-direction: row;
 `;
 
-export const CommentInput = styled.textarea`
+export const CommentInput = styled.input`
   background-color: transparent;
   border: none;
   border-bottom: 1px solid gray;
   white-space: pre-line;
   resize: none;
-
+  width: 2000px;
   &:focus {
     outline: none;
   }
-  width: 720px;
+  
 `;
 export const CommentForm = styled.form`
   display: flex;
@@ -298,7 +313,7 @@ export const DetailTitle = styled.h1`
   border-bottom: 1px solid gray;
 `;
 export const DetailContent = styled.div`
-  width: 800px;
+  width: 900px;
   height: 300px;
   padding: 20px;
   margin-bottom: 20px;
@@ -374,9 +389,7 @@ export const CommentButtonBox = styled.div`
 `;
 
 export const CommentContentInput = styled.input`
-  margin: 10px;
   width: 250px;
-  padding: 10px;
   background-color: transparent;
   border: none;
   border-bottom: 1px solid gray;
@@ -391,15 +404,19 @@ export const CommentTitle = styled.h1`
   width: 800px;
   padding-bottom: 10px;
   font-size: 18px;
+  padding-left:25px;
 `;
 export const CommentContent = styled.div`
   width: 800px;
   padding-bottom: 10px;
   border-bottom: 1px solid gray;
   color: #333333;
+  padding-left:25px;
+
 `;
 export const CommentBox = styled.div`
   padding-bottom: 20px;
+
 `;
 export const CommentSection = styled.section`
   margin: 20px;
@@ -474,6 +491,13 @@ font-size:20px;
 
 //List(myStudy,MyProject,AllSprintList)
 export const CardListsMain = styled.main`
+  @font-face {
+    text-align: center;
+    font-family: 'LeferiPoint-WhiteObliqueA';
+    src: url(${LF}) format("woff2");
+  }
+  font-family: 'LeferiPoint-WhiteObliqueA';
+
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -505,7 +529,7 @@ export const CardContent = styled.div`
   padding: 16px;
   display:flex;
   flex-direction:row;
-  gap:40px;
+  gap:20px;
   font-size:18px;
   margin:40px;
 `;
@@ -541,6 +565,7 @@ export const contentBox = styled.div`
   &:hover {
     transform: scale(1.05);
   }
+  z-index:-1;
 
 `
 
@@ -658,3 +683,101 @@ position:absolute;
 top:1.5rem;
 right:3rem;
 `
+export const commentListBox = styled.div`
+/* display:flex; */
+/* justify-content:center; */
+/* align-items:center; */
+background-color:yellow;
+width:1000px;
+`
+export const SprintMain = styled.div`
+background-color:green;
+width:100vw;
+height:565px;
+margin-top:160px;
+position:relative;
+padding-top:80px;
+z-index:-1;
+`
+export const SprintLine = styled.div`
+width:100vw;
+height:80px;
+border-bottom:1px solid black;
+`
+export const RunningField = styled.div`
+
+background-color:red;
+`
+
+export const SignIcon = styled.div`
+  background-image: url(${signIcon});
+  width:100px;
+  height:100px;
+  background-size: cover;
+  background-color: transparent;
+  position:absolute;
+  top:0;
+  left:50%;
+  `
+
+//캐릭터
+export const Uri = styled.div`
+  background-image: url(${uri});
+  width:100px;
+  height:100px;
+  background-size: cover;
+  background-color: transparent;
+  position:absolute;
+  top:8%;
+  left:0;
+  `
+export const CR1 = styled.div`
+  background-image: url(${cR1});
+  width:100px;
+  height:150px;
+  background-size: cover;
+  background-color: transparent;
+  position:absolute;
+  top:20%;
+  left:20%;
+  `
+export const CR2 = styled.div`
+  background-image: url(${cR2});
+  width:100px;
+  height:120px;
+  background-size: cover;
+  background-color: transparent;
+  position:absolute;
+  top:65%;
+  left:30%;
+  `
+export const CR3 = styled.div`
+  background-image: url(${cR3});
+  width:100px;
+  height:100px;
+  background-size: cover;
+  background-color: transparent;
+  position:absolute;
+  top:30%;
+  left:60%;
+  `
+export const CR4 = styled.div`
+  background-image: url(${cR4});
+  width:100px;
+  height:110px;
+  background-size: cover;
+  background-color: transparent;
+  position:absolute;
+  top:40%;
+  left:80%;
+  `
+export const CR5 = styled.div`
+  background-image: url(${cR5});
+  width:100px;
+  height:130px;
+  background-size: cover;
+  background-color: transparent;
+  position:absolute;
+  top:50%;
+  left:50%;
+  `

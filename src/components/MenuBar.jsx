@@ -5,11 +5,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import * as CSS from "../components/component/style";
 import { allList, listRefer, myProject, myStudy } from "../redux/modules/sprintMenu";
+import Cookies from "js-cookie";
 
 const MenuBar = ({ isActive, toggleMenu }) => {
   const [isMySprintOpen, setIsMySprintOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const checkLogin = Cookies.get('token')
+
   const toggleMySprint = () => {
     setIsMySprintOpen(!isMySprintOpen);
   };
@@ -27,6 +31,10 @@ const MenuBar = ({ isActive, toggleMenu }) => {
     dispatch(listRefer("all"));
     navigate("/main");
   }
+  const logoutOnClickHandler = () =>{
+    Cookies.remove('token')
+  }
+
   return (
     <CSS.MenuBarContainer>
       <CSS.HamburgerButton className="hamburger" zIndex={100} onClick={toggleMenu}>
@@ -37,17 +45,22 @@ const MenuBar = ({ isActive, toggleMenu }) => {
       <CSS.MenuBarDropdown className={`menu-bar ${isActive ? "active" : ""}`}>
         <ul>
           <CSS.MenuBarTopContainer>
-            <Link to="/editor">
-              스터디 / 프로젝트 만들기
-            </Link>
-            <li className="btn-group">
+
+            {!checkLogin && <li className="btn-group">
               <Link to="/login">
                 <Button type="positive">Log in</Button>
               </Link>
               <Link to="/signUp">
                 <Button type="positive">Join us</Button>
               </Link>
-            </li>
+            </li>}
+            {checkLogin && <li className="btn-group">
+                <Button size='150' type="negative" onClick={logoutOnClickHandler}>Log out</Button>
+            </li>}
+            <Link to="/editor">
+              스터디 / 프로젝트 만들기
+            </Link>
+
           </CSS.MenuBarTopContainer>
 
 

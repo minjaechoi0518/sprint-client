@@ -4,7 +4,7 @@ import { writeComment, deleteComment } from "../axios/api";
 
 const Comment = (props) => {
   const data = props.commentList;
-
+console.log('comment:',props)
   const [commentList, setCommentList] = useState("");
   const [editingCommentId, setEditingCommentId] = useState("");
 

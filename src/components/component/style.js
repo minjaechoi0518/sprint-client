@@ -655,9 +655,7 @@ export const MenuBarDropdown = styled.div`
     border-radius: 3px;
     transition: background-color 0.3s ease;
 
-    &:hover {
-      background-color: #eee;
-    }
+
   }
   .btn-group {
     display: flex;

@@ -21,10 +21,10 @@ const AllSprintList = () => {
   if (isError) return <div>Error: {Error.message}</div>;
 
   const detailOpen = (sprintId) => {
-    // if (!!Cookies.get('token')) {
-    //   alert('로그인이 필요합니다.')
-    //   return;
-    // }
+    if (!Cookies.get('token')) {
+      alert('로그인이 필요합니다.')
+      return;
+    }
 
     navigate(`/main/${sprintId}`);
   };

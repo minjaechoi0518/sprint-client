@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Tenada from "../style/fonts/Tenada.ttf";
 import heart from "../style/image/heart.png";
 import beanHeart from "../style/image/beanHeart.png";
+import homeIcon from "../style/image/homeIcon.png";
 
 export const HomeTitle = styled.div`
   font-size: 20px;
@@ -32,7 +33,6 @@ export const Button = styled.button`
   border: none;
   border-radius: 8px;
   background-color: ${(props) => {
-
     switch (props.type) {
       case "positive":
         return "#F0F0F0";
@@ -59,7 +59,6 @@ export const Button = styled.button`
     }
   }};
     color: ${(props) => {
-
     switch (props.type) {
       case "positive":
         return "#F0F0F0";
@@ -291,7 +290,7 @@ export const CommentForm = styled.form`
   margin: 20px;
 `;
 export const DetailTitle = styled.h1`
-  width: 600px;
+  width: 700px;
   padding: 20px;
   margin-bottom: 10px;
   margin-top: 20px;
@@ -527,22 +526,6 @@ export const CardFieldContent = styled.div`
   align-items: center;
 `;
 
-// export const CardFieldBar = styled.div`
-//   background-color: #f0f0f0;
-//   border-radius: 4px;
-//   height: 4px;
-//   margin-left: 8px;
-//   margin-right: 4px;
-//   overflow: hidden;
-// `;
-
-// export const CardFieldBarFill = styled.div`
-//   background-color: #0070f3;
-//   border-radius: 4px;
-//   height: 4px;
-//   width: ${(props) =>
-//     props.fill ? `${(props.fill / props.max) * 100}%` : "0"};
-// `;
 export const background = styled.div`
   display: flex;
   justify-content: center;
@@ -560,6 +543,7 @@ export const contentBox = styled.div`
   }
 
 `
+
 export const heartBox = styled.div`
 position:absolute;
 right:3rem;
@@ -574,7 +558,7 @@ export const MenuBarTopContainer = styled.div`
 
 export const MenuBarContainer = styled.div`
   /* position: relative; */
-  z-index: 1;
+  z-index: 100;
 `;
 
 export const HamburgerButton = styled.button`
@@ -621,7 +605,6 @@ export const MenuBarDropdown = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   ul {
     list-style: none;
     padding: 0;
@@ -629,7 +612,6 @@ export const MenuBarDropdown = styled.div`
     position: absolute;
     top: 200px;
   }
-
   li {
     margin-bottom: 20px;
   }
@@ -642,8 +624,6 @@ export const MenuBarDropdown = styled.div`
     color: #333;
     border-radius: 3px;
     transition: background-color 0.3s ease;
-
-
   }
   .btn-group {
     display: flex;
@@ -655,5 +635,26 @@ export const MenuBarDropdown = styled.div`
       margin: 0 5px;
     }
   }
+  footer{
+    margin-top:800px;
+  }
 `;
 
+//홈 아이콘
+export const HomeIcon = styled.button`
+background-image: url(${homeIcon});
+width:60px;
+height:60px;
+background-size: cover;
+background-color: transparent;
+border:none;
+cursor: pointer;
+&:hover {
+    transform: scale(1.2);
+  }
+`
+export const HomeIconBox = styled.div`
+position:absolute;
+top:1.5rem;
+right:3rem;
+`

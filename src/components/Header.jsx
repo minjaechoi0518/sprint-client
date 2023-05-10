@@ -1,9 +1,14 @@
 import * as CSS from "./component/style";
 import MenuBar from "./MenuBar";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ setFilterType }) => {
   const [isActive, setIsActive] = useState(false);
+  const navigate = useNavigate()
+  const homeIconButtonHandler = () => {
+    navigate('/')
+  }
 
   const toggleMenu = () => {
     setIsActive(!isActive);
@@ -17,7 +22,11 @@ const Header = ({ setFilterType }) => {
           toggleMenu={toggleMenu}
           setFilterType={setFilterType}
         />
+        <CSS.HomeIconBox>
+        <CSS.HomeIcon onClick={homeIconButtonHandler}/>
+        </CSS.HomeIconBox>
       </CSS.Header>
+
     </div>
   );
 };

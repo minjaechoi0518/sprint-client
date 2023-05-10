@@ -1,18 +1,18 @@
 import { Button } from "./component/style";
 import { Link, useNavigate } from "react-router-dom";
 import { useQuery } from "react-query";
-import { myStudy } from "../axios/api";
+import { myStudy, participateSprint } from "../axios/api";
 
 import Cookies from "js-cookie";
-import * as CSS from '../components/component/style'
+import * as CSS from './component/style'
 import IsLike from "./IsLike";
 
 
 
-const MyStudy = () => {
+const ParticipateSprint = () => {
   const navigate = useNavigate()
   //API 연결
-  const { isLoading, isError, data } = useQuery("myStudy", myStudy);
+  const { isLoading, isError, data } = useQuery("participateSprint", participateSprint);
 
   console.log(data);
   if (isLoading) return <div>Loading...</div>;
@@ -30,7 +30,7 @@ const MyStudy = () => {
   return (
     
     <CSS.background>
-      나는 스터디야 
+
     <CSS.CardListsMain>
       {data.map((item) => (
         <CSS.contentBox>
@@ -69,5 +69,5 @@ const MyStudy = () => {
 
 
 
-export default MyStudy;
+export default ParticipateSprint;
 

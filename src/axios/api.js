@@ -25,7 +25,8 @@ const handleSignUp = async (props) => {
     return response.data;
   } catch (error) {
     //todo: 서버에서 예외처리 하면 추후 변경
-    throw new Error("회원가입이 실패했습니다.");
+    throw new Error(error.response.data.msg);
+
   }
 };
 
@@ -42,13 +43,24 @@ const handleLogin = async (props) => {
     // const token = TokenExtractor(jwtToken)
     return jwtToken;
   } catch (error) {
-    throw new Error(error.message);
+    throw new Error(error.response.data.msg);
   }
 };
 
 //sprint 추가
 const addSprint = async (newSprint) => {
   await jwtInstance.post("/api/sprint", newSprint);
+};
+
+//sprint All 조회
+const allSprint = async () => {
+  try {
+    const response = await jwtInstance.get(`/api/sprint`);
+
+    return response.data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
 };
 
 //sprint 상세조회
@@ -69,17 +81,27 @@ const detailModify = async (props) => {
   });
 };
 
+//sprint 삭제
+const deleteSprint = async (sprintId) => {
+  try {
+    const response = await jwtInstance.delete(`/api/sprint/${sprintId}`);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
 //신청하기
 const ApplySprint = async (props) => {
-  // console.log('props axios:', props)
   try {
+    console.log(props)
     const response = await jwtInstance.post(`/api/sprint/join/${props.id}`, {
       position: props.position,
       link: props.link,
     });
     return response.data;
   } catch (error) {
-    throw new Error(error.message);
+    throw new Error(error.response.data.message);
   }
 };
 
@@ -88,22 +110,14 @@ const isLikePost = async (props) => {
   await jwtInstance.post(`/api/like/sprint/${props}`);
 };
 
-//sprint All 조회
-const allSprint = async () => {
-  try {
-    const response = await jwtInstance.get(`/api/sprint`);
 
-    return response.data;
-  } catch (error) {
-    throw new Error(error.message);
-  }
-};
 
-//내가 만든 스프린트 조회
-const myStudy = async () => {
+
+//내가 만든 스프린트 조회 
+const myMakeSprint = async () => {
+
   try {
     const response = await jwtInstance.get(`/api/sprint/mysprint`);
-    // const response = await jwtInstance.get(`/api/sprint/mystudy`);
     return response.data;
   } catch (error) {
     throw new Error(error.message);
@@ -111,11 +125,9 @@ const myStudy = async () => {
 };
 
 // 참여중인 스프린트 조회
-
-const myProject = async () => {
+const participateSprint = async () => {
   try {
     const response = await jwtInstance.get(`api/sprint/joinlist`);
-    // const response = await jwtInstance.get(`/api/sprint/myproject`);
     return response.data;
   } catch (error) {
     throw new Error(error.message);
@@ -144,6 +156,8 @@ const deleteComment = async (sprintId, commentId) => {
   }
 };
 
+
+
 export {
   handleSignUp,
   handleLogin,
@@ -152,9 +166,10 @@ export {
   detailModify,
   isLikePost,
   allSprint,
-  myStudy,
-  myProject,
   ApplySprint,
   writeComment,
   deleteComment,
+  deleteSprint,
+  myMakeSprint,
+  participateSprint
 };

@@ -28,7 +28,6 @@ const Login = () => {
   const newLoginPost = {
     username,
     password,
-
   }
 
   const onClickLoginHandler = (e)=>{

@@ -135,10 +135,13 @@ const participateSprint = async () => {
 };
 
 // 댓글 작성(등록)
-const writeComment = async (sprintId, newComment) => {
+const writeComment = async (props) => {
+  console.log(props)
   try {
-    const response = await jwtInstance.post(`/api/${sprintId}`, {
-      comment: newComment,
+    const response = await jwtInstance.post(`/api/${props.sprintId}`, {
+      username: props.username,
+      nickname: props.nickname,
+      content: props.content
     });
     return response.data;
   } catch (error) {

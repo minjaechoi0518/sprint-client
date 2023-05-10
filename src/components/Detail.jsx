@@ -36,6 +36,7 @@ const Detail = () => {
   const { isLoading, isError, data } = useQuery("detailSprint", () =>
     detailSprint(params.id)
   );
+  console.log('data:',data)
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error: {Error.message}</div>;
 
@@ -102,7 +103,7 @@ const Detail = () => {
           <DetailModify data={data} modify={modify} setModify={setModify} />
         )}
         <section>
-          <Comment commentList={data.commentList} />
+          <Comment data={data} />
         </section>
       </CSS.Main>
     </>

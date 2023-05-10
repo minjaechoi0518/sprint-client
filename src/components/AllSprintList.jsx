@@ -6,30 +6,32 @@ import { useQuery } from "react-query";
 import { allSprint } from "../axios/api";
 import { useState } from "react";
 import Cookies from "js-cookie";
-import * as CSS from '../components/component/style'
+import * as CSS from "../components/component/style";
 import SupportStatus from "./SupportStatus";
 import IsLike from "./IsLike";
 
-
 const AllSprintList = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   // const [isVisible, setIsVisible] = useState('')
   //API 연결
   const { isLoading, isError, data } = useQuery("allSprint", allSprint);
   // debugger;
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error: {Error.message}</div>;
-  const detailOpen = (sprintId) =>{
+
+  const detailOpen = (sprintId) => {
     // if (!!Cookies.get('token')) {
     //   alert('로그인이 필요합니다.')
     //   return;
     // }
-    navigate(`/main/${sprintId}`)
-  }
 
+    navigate(`/main/${sprintId}`);
+  };
 
   return (
     <CSS.background>
+
       나는 전체야
     <CSS.CardListsMain>
       {data.map((item) => (
@@ -63,8 +65,9 @@ const AllSprintList = () => {
         </CSS.contentBox>
       ))}
     </CSS.CardListsMain>
+
     </CSS.background>
-);
+  );
 };
 
 export default AllSprintList;

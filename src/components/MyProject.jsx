@@ -9,6 +9,7 @@ import * as CSS from '../components/component/style'
 import IsLike from "./IsLike";
 
 
+
 const MyProject = () => {
   const navigate = useNavigate()
   // const [isVisible, setIsVisible] = useState('')
@@ -26,6 +27,7 @@ const MyProject = () => {
     navigate(`/main/${sprintId}`)
   }
   
+
 
   return (
     <CSS.background>
@@ -66,5 +68,7 @@ const MyProject = () => {
 );
 };
 
+
 export default MyProject;
+
 

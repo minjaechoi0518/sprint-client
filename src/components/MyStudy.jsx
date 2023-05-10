@@ -8,6 +8,7 @@ import * as CSS from '../components/component/style'
 import IsLike from "./IsLike";
 
 
+
 const MyStudy = () => {
   const navigate = useNavigate()
   //API 연결
@@ -24,6 +25,7 @@ const MyStudy = () => {
     navigate(`/main/${sprintId}`)
   }
   
+
 
   return (
     
@@ -66,4 +68,6 @@ const MyStudy = () => {
 };
 
 
+
 export default MyStudy;
+
